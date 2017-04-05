@@ -1,0 +1,16 @@
+<div class="col-md-4">
+  <div class="list-group">
+    {{#each model as |clothingItem|}}
+    {{debugger}}
+      {{#link-to "clothing.clothing-item" clothingItem.id class="list-group-item clothing-item-link"}}
+        {{clothingItem.name}}
+        <span class="pointer glyphicon glyphicon-chevron-right"></span>
+      {{/link-to}}
+    {{/each}}
+  </div>
+</div>
+<div class="col-md-8">
+  <div class="list-group">
+    {{outlet}}
+  </div>
+</div>
