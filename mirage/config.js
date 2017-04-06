@@ -25,6 +25,7 @@ export default function() {
   */
   this.get('/clothing-items');
   this.get('/clothing-items/:id');
+  this.get('/sizes/:id');
   // this.get('/clothing-items/:id/sizes',(schema,request)=>{
   //   const sizeId = request.params.id;
   //   return schema.comments.where({sizeId:sizeId});

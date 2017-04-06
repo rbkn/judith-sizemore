@@ -1,13 +1,23 @@
-<div class="jumbo">
-  <h2 class="title">{{model.name}} information</h2>
-  <div class="right detail-section">
-      <div class="detail">
-        <strong>Picture:</strong> {{model.city}}
-      </div>
-      <div class="detail">
-        <strong>Description:</strong>
-      </div>
-      <p>{{model.description}}</p>
+<div class="col-md-6">
+  <div class="jumbo">
+    <h2 class="title">{{model.name}} information</h2>
+    <div class="right detail-section">
+        <div class="detail">
+          <strong>Description:</strong>
+        </div>
+        <p>{{model.description}}</p>
+    </div>
+    <img src="{{model.image}}" class="clothing-item-pic">
   </div>
-  <img src="{{model.image}}" class="clothing-item-pic">
+</div>
+<div class="col-md-6">
+  <div class="jumbo">
+    <h2 class="title">Sizing info</h2>
+      <ul>
+        {{debugger}}
+        {{#each model.sizes as |size|}}
+          <li>Waist width: {{size.waistWidth}}</li>
+        {{/each}}
+      </ul>
+  </div>
 </div>
