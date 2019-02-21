@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
 
-const Router = Ember.Router.extend({
+const Router = EmberRouter.extend({
   location: config.locationType,
   rootURL: config.rootURL
 });
@@ -12,11 +12,6 @@ Router.map(function() {
     //  this.route('sizes');
     });
   });
-  // this.route('clothing',{path:'clothing/:clothing_id'},function(){
-  //   this.route('sizes',function() {
-  //     this.route('size',{path:'sizes/:size_id'});
-  //   });
-  // });
 });
 
 export default Router;

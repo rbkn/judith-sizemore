@@ -1,12 +1,4 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
-  model() {
-    let clothingItem = this.modelFor('clothing.clothingItem');
-    return clothingItem.get('sizes');
-  },
-  title() {
-    let clothingName = this.modelFor('clothing.clothingItem').get('name');
-    return `${clothingName} - size list`;
-  }
+export default Route.extend({
 });

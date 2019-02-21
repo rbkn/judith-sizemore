@@ -1,25 +1,26 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('clothing-item-display-box', 'Integration | Component | clothing item display box', {
-  integration: true
-});
+module('Integration | Component | clothing-item-display-box', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
+  test('it renders', async function(assert) {
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.set('myAction', function(val) { ... });
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+    await render(hbs`{{clothing-item-display-box}}`);
 
-  this.render(hbs`{{clothing-item-display-box}}`);
+    assert.equal(this.element.textContent.trim(), '');
 
-  assert.equal(this.$().text().trim(), '');
+    // Template block usage:
+    await render(hbs`
+      {{#clothing-item-display-box}}
+        template block text
+      {{/clothing-item-display-box}}
+    `);
 
-  // Template block usage:
-  this.render(hbs`
-    {{#clothing-item-display-box}}
-      template block text
-    {{/clothing-item-display-box}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+    assert.equal(this.element.textContent.trim(), 'template block text');
+  });
 });
