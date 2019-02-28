@@ -1,0 +1,31 @@
+{{#bs-navbar type=type backgroundColor=bg collapsed=collapsed onCollapse=(action (mut collapsed) true) onExpand=(action (mut collapsed) false) as |navbar|}}
+  <div class="navbar-header">
+    {{navbar.toggle}}
+    {{#link-to "index" class="navbar-brand"}}Size Picker<small> (prototype)</small>{{/link-to}}
+  </div>
+  {{#navbar.content}}
+    {{#navbar.nav as |nav|}}
+      {{#nav.item}}{{#nav.link-to "clothing"}}Clothing{{/nav.link-to}}{{/nav.item}}
+      {{#nav.dropdown as |dd|}}
+        {{#dd.toggle}}Dropdown <span class="caret"></span>{{/dd.toggle}}
+        {{#dd.menu as |ddm|}}
+          {{#ddm.item}}{{#ddm.link-to "clothing"}}Clothing{{/ddm.link-to}}{{/ddm.item}}
+          {{#ddm.item}}Test item{{/ddm.item}}
+        {{/dd.menu}}
+      {{/nav.dropdown}}
+    {{/navbar.nav}}
+  {{/navbar.content}}
+  <span class="nav navbar-nav navbar-right">
+    {{#link-to "clothing"}}{{fa-icon "user-circle"}}&nbsp;Sign Up&nbsp;{{/link-to}}
+    {{#if session.isAuthenticated}}
+      <a {{action "logout"}} class="alert-link" href="#">&nbsp;&nbsp;{{fa-icon "sign-out"}}&nbsp;Logout</a>
+
+      {{#if sessionUser.user}}
+        <p class="navbar-text pull-right">Signed in as {{sessionUser.user.name}}</p>
+      {{/if}}
+    {{else}}
+        {{#link-to "login" classNames="alert-link"}}&nbsp;&nbsp;{{fa-icon "sign-in"}}&nbsp;Login{{/link-to}}
+    {{/if}}
+
+  </span>
+{{/bs-navbar}}

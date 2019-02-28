@@ -12,6 +12,7 @@ Router.map(function() {
     //  this.route('sizes');
     });
   });
+  this.route('login');
 });
 
 export default Router;

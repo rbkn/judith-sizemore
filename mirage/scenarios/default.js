@@ -12,4 +12,5 @@ export default function( server ) {
 
   server.loadFixtures('clothing-items');
   server.loadFixtures('sizes');
+  server.loadFixtures('users');
 }

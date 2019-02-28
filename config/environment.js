@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'judith-sizemore',
     environment,
     rootURL: '/',
-//    apiHost: 'http://localhost:4200',
+    apiHost: 'http://localhost:4200',
     locationType: 'auto',
     apiNamespace: 'api',
     EmberENV: {
