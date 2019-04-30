@@ -25,11 +25,21 @@ export default function() {
 
     http://www.ember-cli-mirage.com/docs/v0.3.x/shorthands/
   */
-  this.get('/clothing-items');
-  this.get('/clothing-items/:id');
+  this.resource('clothing-items',{ only: ['index', 'show'] });
+//  this.get('/clothing-items');
+//  this.get('/clothing-items/:id');
   this.get('/sizes/:id');
-  this.get('/users/');
-  this.get('/users/:id');
+//  this.get('/users/');
+  //this.get('/users/:id');
+//  this.get('/users/:id', (schema, request) => {
+//  var id = request.params.id;
+
+//  return schema.users.find(id);
+//  });
+  this.resource('users',{ only: ['index', 'show'] });
+  this.resource('user-measurements',{ only: ['index', 'show'] });
+  //this.get('/users/:id/measurements');
+
 
   //Dummy to get back a user for authentication testing
 

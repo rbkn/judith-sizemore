@@ -14,4 +14,5 @@ export default DS.Model.extend({
   wristWidth: DS.attr(),
   ankleWidth: DS.attr(),
   height: DS.attr(),
+  user: DS.belongsTo('user')
 });

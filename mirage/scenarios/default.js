@@ -9,8 +9,10 @@ export default function( server ) {
   // server.createList('post', 10);
   //server.createList('clothing-item', 10);
 
-
+  server.loadFixtures('user-measurements');
   server.loadFixtures('clothing-items');
   server.loadFixtures('sizes');
   server.loadFixtures('users');
+
+
 }

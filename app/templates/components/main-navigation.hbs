@@ -6,6 +6,7 @@
   {{#navbar.content}}
     {{#navbar.nav as |nav|}}
       {{#nav.item}}{{#nav.link-to "clothing"}}Clothing{{/nav.link-to}}{{/nav.item}}
+      {{#nav.item}}{{#nav.link-to "user.measurement" 1}}Submit Measurements{{/nav.link-to}}{{/nav.item}}
       {{#nav.dropdown as |dd|}}
         {{#dd.toggle}}Dropdown <span class="caret"></span>{{/dd.toggle}}
         {{#dd.menu as |ddm|}}
@@ -26,6 +27,5 @@
     {{else}}
         {{#link-to "login" classNames="alert-link"}}&nbsp;&nbsp;{{fa-icon "sign-in"}}&nbsp;Login{{/link-to}}
     {{/if}}
-
   </span>
 {{/bs-navbar}}
