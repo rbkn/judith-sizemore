@@ -16,6 +16,7 @@ Router.map(function() {
   this.route('user', {path:'users/:user_id'}, function() {
     this.route('measurement');
   });
+  this.route('about');
 });
 
 export default Router;

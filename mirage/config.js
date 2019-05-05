@@ -1,4 +1,5 @@
 import Response from 'ember-cli-mirage/response';
+import { JSONAPISerializer } from 'ember-cli-mirage';
 
 export default function() {
   this.namespace = 'api';
@@ -25,9 +26,23 @@ export default function() {
 
     http://www.ember-cli-mirage.com/docs/v0.3.x/shorthands/
   */
-  this.resource('clothing-items',{ only: ['index', 'show'] });
-//  this.get('/clothing-items');
-//  this.get('/clothing-items/:id');
+  //this.resource('clothing-items',{ only: ['index', 'show'] });
+  //this.resource('clothing-items',{ only: ['index'] });
+  this.get('/clothing-items/:id');
+  this.get('/clothing-items', function({clothingItems}, request) {
+    let clothingItemModels = clothingItems.all();
+    if (request.queryParams.name !== undefined)
+    {
+      let filteredClothingItemModels = clothingItemModels;
+      filteredClothingItemModels.models = clothingItemModels.models.filter(function (i) {
+        return i.attrs.name.toLowerCase().indexOf(request.queryParams.name.toLowerCase()) !== -1;
+      });
+      return filteredClothingItemModels ;
+    } else {
+      return clothingItemModels;
+    }
+  });
+
   this.get('/sizes/:id');
 //  this.get('/users/');
   //this.get('/users/:id');
@@ -37,8 +52,11 @@ export default function() {
 //  return schema.users.find(id);
 //  });
   this.resource('users',{ only: ['index', 'show'] });
-  this.resource('user-measurements',{ only: ['index', 'show'] });
+  //User measurements should really be under users resource...
+  this.resource('user-measurements',{ only: ['update'] });
   //this.get('/users/:id/measurements');
+
+  this.put('/users/:id/measurement');
 
 
   //Dummy to get back a user for authentication testing

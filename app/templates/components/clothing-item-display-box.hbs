@@ -1,1 +1,28 @@
-{{yield}}
+<article class="clothingItem">
+  <a onclick={{action "toggleImageSize"}}
+    class="image {{if this.isWide "wide"}}"
+    role="button">
+    <img src={{this.clothingItem.image}} alt={{this.clothingItem.name}}>
+  </a>
+  <div class="details">
+    <h3>{{link-to this.clothingItem.name "clothing.clothing-item" this.clothingItem class=this.clothingItem.id}}</h3>
+    <div class="detail description">
+      <span>Description:</span> {{this.clothingItem.description}}
+    </div>
+    <div class="detail type">
+      <span>Type:</span> {{this.clothingItem.type}}
+    </div>
+    <div class="detail source">
+      <span>Source:</span> {{this.clothingItem.source}}
+    </div>
+    <div class="detail colour">
+      <span>Colour:</span> {{this.clothingItem.colour}}
+    </div>
+    <div class="detail fit">
+      <span>Fit:</span> {{this.clothingItem.fit}}
+    </div>
+    <div class="detail price">
+      <span>Price:</span> {{this.clothingItem.price}}
+    </div>
+  </div>
+</article>
